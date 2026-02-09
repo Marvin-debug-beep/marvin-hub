@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤖 Marvin's Hub - Command Center</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="marvin-avatar">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#00ff88;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#00cc6a;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect x="10" y="15" width="80" height="65" rx="15" fill="url(#glow)" opacity="0.2"/>
+                        <rect x="15" y="20" width="70" height="55" rx="12" fill="url(#glow)"/>
+                        <ellipse cx="35" cy="42" rx="10" ry="12" fill="#0f172a"/>
+                        <ellipse cx="65" cy="42" rx="10" ry="12" fill="#0f172a"/>
+                        <ellipse cx="35" cy="42" rx="5" ry="8" fill="#00ff88" class="eye-left"/>
+                        <ellipse cx="65" cy="42" rx="5" ry="8" fill="#00ff88" class="eye-right"/>
+                        <path d="M 30 65 Q 50 75 70 65" stroke="#0f172a" stroke-width="3" fill="none" class="mouth"/>
+                        <rect x="45" y="8" width="10" height="15" rx="3" fill="url(#glow)"/>
+                        <circle cx="50" cy="12" r="3" fill="#0f172a" class="antenna-light"/>
+                    </svg>
+                </div>
+                <span class="logo-text">Marvin's Hub</span>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" data-section="overview">
+                    <span class="icon">📊</span>
+                    <span class="label">Overview</span>
+                </a>
+                <a href="#" class="nav-item" data-section="revenue">
+                    <span class="icon">💰</span>
+                    <span class="label">Revenue</span>
+                </a>
+                <a href="#" class="nav-item" data-section="email">
+                    <span class="icon">📧</span>
+                    <span class="label">Email</span>
+                </a>
+                <a href="#" class="nav-item" data-section="traffic">
+                    <span class="icon">🌐</span>
+                    <span class="label">Traffic</span>
+                </a>
+                <a href="#" class="nav-item" data-section="automation">
+                    <span class="icon">🤖</span>
+                    <span class="label">Automation</span>
+                </a>
+                <a href="#" class="nav-item" data-section="chat">
+                    <span class="icon">💬</span>
+                    <span class="label">Chat</span>
+                </a>
+                <a href="#" class="nav-item" data-section="channels">
+                    <span class="icon">📡</span>
+                    <span class="label">Channels</span>
+                </a>
+                <a href="#" class="nav-item" data-section="scheduler">
+                    <span class="icon">⏰</span>
+                    <span class="label">Scheduler</span>
+                </a>
+                <a href="#" class="nav-item" data-section="skills">
+                    <span class="icon">🧩</span>
+                    <span class="label">Skills</span>
+                </a>
+                <a href="#" class="nav-item" data-section="security">
+                    <span class="icon">🔐</span>
+                    <span class="label">Security</span>
+                </a>
+                <a href="#" class="nav-item" data-section="logs">
+                    <span class="icon">📋</span>
+                    <span class="label">Logs</span>
+                </a>
+                <a href="#" class="nav-item" data-section="settings">
+                    <span class="icon">⚙️</span>
+                    <span class="label">Settings</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="system-status">
+                    <div class="status-dot online"></div>
+                    <span>System Online</span>
+                </div>
+                <div class="uptime" id="uptime">Uptime: 1d 2h 15m</div>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <h1 id="page-title">Overview</h1>
+                    <span class="header-subtitle">Your command center for making money</span>
+                </div>
+                <div class="header-right">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search...">
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn-icon" title="Notifications">
+                            <span>🔔</span>
+                            <span class="notification-badge">3</span>
+                        </button>
+                        <button class="btn-icon" title="Settings">
+                            <span>⚙️</span>
+                        </button>
+                    </div>
+                    <div class="user-avatar">
+                        <span>M</span>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- Overview Section -->
+                <section id="overview-section" class="section active">
+                    <!-- Stats Grid -->
+                    <div class="stats-grid">
+                        <div class="stat-card revenue">
+                            <div class="stat-icon">💰</div>
+                            <div class="stat-content">
+                                <div class="stat-value" id="total-revenue">$4,250</div>
+                                <div class="stat-label">Total Revenue</div>
+                                <div class="stat-change positive">+12.5% this month</div>
+                            </div>
+                        </div>
+                        <div class="stat-card subscribers">
+                            <div class="stat-icon">📧</div>
+                            <div class="stat-content">
+                                <div class="stat-value" id="email-list">1,847</div>
+                                <div class="stat-label">Email Subscribers</div>
+                                <div class="stat-change positive">+15% growth</div>
+                            </div>
+                        </div>
+                        <div class="stat-card visitors">
+                            <div class="stat-icon">👁️</div>
+                            <div class="stat-content">
+                                <div class="stat-value" id="visitors">4,250</div>
+                                <div class="stat-label">Monthly Visitors</div>
+                                <div class="stat-change positive">+8.3% this month</div>
+                            </div>
+                        </div>
+                        <div class="stat-card tasks">
+                            <div class="stat-icon">✅</div>
+                            <div class="stat-content">
+                                <div class="stat-value" id="tasks-today">47</div>
+                                <div class="stat-label">Tasks Today</div>
+                                <div class="stat-change neutral">On track</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Charts Row -->
+                    <div class="charts-row">
+                        <div class="chart-card large">
+                            <div class="card-header">
+                                <h3>📈 Revenue Trends</h3>
+                                <div class="chart-tabs">
+                                    <button class="chart-tab active" data-range="week">Week</button>
+                                    <button class="chart-tab" data-range="month">Month</button>
+                                    <button class="chart-tab" data-range="year">Year</button>
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="revenueChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-card">
+                            <div class="card-header">
+                                <h3>🍰 Revenue Distribution</h3>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="distributionChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Bottom Row -->
+                    <div class="bottom-row">
+                        <!-- Active Sessions -->
+                        <div class="panel-card">
+                            <div class="card-header">
+                                <h3>🤖 Active Sessions</h3>
+                                <button class="btn-small">View All</button>
+                            </div>
+                            <div class="sessions-list" id="sessions-list">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+                        
+                        <!-- Channel Status -->
+                        <div class="panel-card">
+                            <div class="card-header">
+                                <h3>📡 Channel Status</h3>
+                            </div>
+                            <div class="channels-grid" id="channels-grid">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+                        
+                        <!-- Recent Activity -->
+                        <div class="panel-card">
+                            <div class="card-header">
+                                <h3>📋 Live Activity</h3>
+                                <span class="live-indicator">● LIVE</span>
+                            </div>
+                            <div class="activity-log" id="activity-log">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Revenue Section -->
+                <section id="revenue-section" class="section">
+                    <div class="section-header">
+                        <h2>💰 Revenue Tracking</h2>
+                        <button class="btn-primary" onclick="refreshRevenue()">🔄 Refresh</button>
+                    </div>
+                    
+                    <div class="revenue-summary">
+                        <div class="total-card">
+                            <h3>Total Revenue (30 days)</h3>
+                            <div class="big-number" id="rev-total">$4,250.00</div>
+                            <div class="goal-progress">
+                                <div class="goal-bar">
+                                    <div class="progress-fill" id="goal-progress-bar" style="width: 85%"></div>
+                                </div>
+                                <span class="goal-text">85% of $5,000 goal</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="revenue-breakdown">
+                        <div class="rev-card propulse">
+                            <div class="rev-icon">🏠</div>
+                            <div class="rev-info">
+                                <h4>PropPulse</h4>
+                                <div class="rev-amount" id="rev-propulse">$2,100</div>
+                                <div class="rev-sub">Real estate data</div>
+                            </div>
+                        </div>
+                        <div class="rev-card api">
+                            <div class="rev-icon">🔌</div>
+                            <div class="rev-info">
+                                <h4>API Sales</h4>
+                                <div class="rev-amount" id="rev-api">$1,275</div>
+                                <div class="rev-sub">Data subscriptions</div>
+                            </div>
+                        </div>
+                        <div class="rev-card manual">
+                            <div class="rev-icon">💵</div>
+                            <div class="rev-info">
+                                <h4>Manual/Services</h4>
+                                <div class="rev-amount" id="rev-manual">$875</div>
+                                <div class="rev-sub">Consulting & one-time</div>
+                            </div>
+                        </div>
+                        <div class="rev-card subs">
+                            <div class="rev-icon">👥</div>
+                            <div class="rev-info">
+                                <h4>Subscribers</h4>
+                                <div class="rev-amount" id="rev-subs">247</div>
+                                <div class="rev-sub">Active paid subs</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-section">
+                        <h3>📈 Monthly Revenue History</h3>
+                        <div class="chart-container tall">
+                            <canvas id="revenueHistoryChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Email Section -->
+                <section id="email-section" class="section">
+                    <div class="section-header">
+                        <h2>📧 Email Metrics</h2>
+                    </div>
+                    
+                    <div class="email-stats">
+                        <div class="email-card">
+                            <div class="email-stat">
+                                <div class="stat-icon">👥</div>
+                                <div class="stat-info">
+                                    <div class="value" id="email-list-size">1,847</div>
+                                    <div class="label">Total Subscribers</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="email-card">
+                            <div class="email-stat">
+                                <div class="stat-icon">📬</div>
+                                <div class="stat-info">
+                                    <div class="value" id="open-rate">42.3%</div>
+                                    <div class="label">Open Rate</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="email-card">
+                            <div class="email-stat">
+                                <div class="stat-icon">🖱️</div>
+                                <div class="stat-info">
+                                    <div class="value" id="click-rate">8.7%</div>
+                                    <div class="label">Click Rate</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="email-card">
+                            <div class="email-stat">
+                                <div class="stat-icon">📈</div>
+                                <div class="stat-info">
+                                    <div class="value" id="email-growth">+15%</div>
+                                    <div class="label">Growth Rate</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-section">
+                        <h3>📊 List Growth</h3>
+                        <div class="chart-container">
+                            <canvas id="listGrowthChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Traffic Section -->
+                <section id="traffic-section" class="section">
+                    <div class="section-header">
+                        <h2>🌐 Traffic & Analytics</h2>
+                    </div>
+                    
+                    <div class="traffic-stats">
+                        <div class="traffic-card">
+                            <h4>Monthly Visitors</h4>
+                            <div class="big-stat" id="traffic-visitors">4,250</div>
+                            <div class="traffic-change positive">+8.3% vs last month</div>
+                        </div>
+                        <div class="traffic-card">
+                            <h4>Conversions</h4>
+                            <div class="big-stat" id="traffic-conversions">102</div>
+                            <div class="traffic-change positive">+15% vs last month</div>
+                        </div>
+                        <div class="traffic-card">
+                            <h4>Conversion Rate</h4>
+                            <div class="big-stat" id="traffic-rate">2.4%</div>
+                            <div class="traffic-change neutral">Industry avg: 2.1%</div>
+                        </div>
+                        <div class="traffic-card">
+                            <h4>Social Followers</h4>
+                            <div class="big-stat" id="social-followers">2,840</div>
+                            <div class="traffic-change positive">+12% this month</div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Automation Section -->
+                <section id="automation-section" class="section">
+                    <div class="section-header">
+                        <h2>🤖 Automation Status</h2>
+                    </div>
+                    
+                    <div class="automation-overview">
+                        <div class="auto-stat-card">
+                            <div class="auto-stat-icon">⚡</div>
+                            <div class="auto-stat-value" id="active-sessions">3</div>
+                            <div class="auto-stat-label">Active Sessions</div>
+                        </div>
+                        <div class="auto-stat-card">
+                            <div class="auto-stat-icon">✅</div>
+                            <div class="auto-stat-value" id="tasks-completed">47</div>
+                            <div class="auto-stat-label">Tasks Today</div>
+                        </div>
+                        <div class="auto-stat-card">
+                            <div class="auto-stat-icon">💰</div>
+                            <div class="auto-stat-value" id="revenue-per-auto">$1,250</div>
+                            <div class="auto-stat-label">Revenue per Automation</div>
+                        </div>
+                    </div>
+                    
+                    <div class="sessions-detail">
+                        <h3>Session Details</h3>
+                        <div class="sessions-table" id="automation-sessions">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Chat Section -->
+                <section id="chat-section" class="section">
+                    <div class="section-header">
+                        <h2>💬 Chat with Marvin</h2>
+                    </div>
+                    
+                    <div class="chat-container">
+                        <div class="chat-messages" id="chat-messages">
+                            <div class="message bot">
+                                <div class="message-avatar">M</div>
+                                <div class="message-content">
+                                    <div class="message-text">Hello! I'm Marvin, your AI assistant. How can I help you today?</div>
+                                    <div class="message-time">Just now</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat-input-container">
+                            <input type="text" id="chat-input" placeholder="Type your message..." autocomplete="off">
+                            <button class="btn-send" onclick="sendMessage()">➤</button>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-actions">
+                        <h4>Quick Actions</h4>
+                        <div class="quick-actions">
+                            <button class="action-chip" onclick="quickAction('Generate newsletter')">📰 Generate Newsletter</button>
+                            <button class="action-chip" onclick="quickAction('Show revenue')">💰 Show Revenue</button>
+                            <button class="action-chip" onclick="quickAction('Check logs')">📋 Check Logs</button>
+                            <button class="action-chip" onclick="quickAction('Schedule task')">⏰ Schedule Task</button>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Channels Section -->
+                <section id="channels-section" class="section">
+                    <div class="section-header">
+                        <h2>📡 Channel Status</h2>
+                    </div>
+                    
+                    <div class="channels-detail" id="channels-detail">
+                        <!-- Populated by JS -->
+                    </div>
+                </section>
+                
+                <!-- Scheduler Section -->
+                <section id="scheduler-section" class="section">
+                    <div class="section-header">
+                        <h2>⏰ Task Scheduler</h2>
+                        <button class="btn-primary">+ Add Task</button>
+                    </div>
+                    
+                    <div class="cron-table-container">
+                        <table class="cron-table">
+                            <thead>
+                                <tr>
+                                    <th>Status</th>
+                                    <th>Task Name</th>
+                                    <th>Schedule</th>
+                                    <th>Last Run</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cron-jobs-body">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                
+                <!-- Skills Section -->
+                <section id="skills-section" class="section">
+                    <div class="section-header">
+                        <h2>🧩 Skills & Capabilities</h2>
+                    </div>
+                    
+                    <div class="skills-grid" id="skills-grid">
+                        <!-- Populated by JS -->
+                    </div>
+                </section>
+                
+                <!-- Security Section -->
+                <section id="security-section" class="section">
+                    <div class="section-header">
+                        <h2>🔐 Security Controls</h2>
+                    </div>
+                    
+                    <div class="security-overview">
+                        <div class="security-card">
+                            <h3>Execution Approvals</h3>
+                            <div class="toggle-container">
+                                <label class="toggle">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                                <span>Require approval for destructive actions</span>
+                            </div>
+                        </div>
+                        
+                        <div class="security-card">
+                            <h3>API Access</h3>
+                            <div class="toggle-container">
+                                <label class="toggle">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                                <span>Allow external API connections</span>
+                            </div>
+                        </div>
+                        
+                        <div class="security-card">
+                            <h3>Auto-Execution</h3>
+                            <div class="toggle-container">
+                                <label class="toggle">
+                                    <input type="checkbox">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                                <span>Allow automatic task execution</span>
+                            </div>
+                        </div>
+                        
+                        <div class="security-card">
+                            <h3>Recent Approvals</h3>
+                            <div class="approvals-list">
+                                <div class="approval-item approved">
+                                    <span class="check">✓</span>
+                                    <span>Delete old logs</span>
+                                    <span class="time">2h ago</span>
+                                </div>
+                                <div class="approval-item approved">
+                                    <span class="check">✓</span>
+                                    <span>Send newsletter</span>
+                                    <span class="time">5h ago</span>
+                                </div>
+                                <div class="approval-item pending">
+                                    <span class="check">⏳</span>
+                                    <span>Database backup</span>
+                                    <span class="time">Pending</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Logs Section -->
+                <section id="logs-section" class="section">
+                    <div class="section-header">
+                        <h2>📋 Live Activity Log</h2>
+                        <button class="btn-secondary" onclick="clearLogs()">Clear</button>
+                    </div>
+                    
+                    <div class="logs-container" id="logs-container">
+                        <!-- Populated by JS -->
+                    </div>
+                </section>
+                
+                <!-- Settings Section -->
+                <section id="settings-section" class="section">
+                    <div class="section-header">
+                        <h2>⚙️ Configuration</h2>
+                    </div>
+                    
+                    <div class="settings-grid">
+                        <div class="settings-card">
+                            <h3>General</h3>
+                            <div class="setting-item">
+                                <label>Dashboard Refresh Rate</label>
+                                <select>
+                                    <option>5 seconds</option>
+                                    <option selected>10 seconds</option>
+                                    <option>30 seconds</option>
+                                    <option>1 minute</option>
+                                </select>
+                            </div>
+                            <div class="setting-item">
+                                <label>Theme</label>
+                                <select>
+                                    <option selected>Dark</option>
+                                    <option>Light</option>
+                                    <option>System</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-card">
+                            <h3>Notifications</h3>
+                            <div class="toggle-container">
+                                <label class="toggle">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                                <span>Email notifications</span>
+                            </div>
+                            <div class="toggle-container">
+                                <label class="toggle">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                                <span>Telegram alerts</span>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-card">
+                            <h3>Integrations</h3>
+                            <div class="integration-item">
+                                <span class="integration-name">PostgreSQL</span>
+                                <span class="integration-status connected">Connected</span>
+                            </div>
+                            <div class="integration-item">
+                                <span class="integration-name">Stripe</span>
+                                <span class="integration-status connected">Connected</span>
+                            </div>
+                            <div class="integration-item">
+                                <span class="integration-name">Clawdbot</span>
+                                <span class="integration-status connected">Connected</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    
+    <script src="/js/chart.min.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>
