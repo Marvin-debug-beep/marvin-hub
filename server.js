@@ -22,70 +22,58 @@ const pool = new Pool({
     password: process.env.PG_PASSWORD || 'postgres'
 });
 
-// Store for real-time data
+// Store for real-time data (placeholder - API will override with real data)
 let dashboardData = {
     revenue: {
-        total: 4250.00,
-        propulse: 2100.00,
-        apiSales: 1275.00,
-        manual: 875.00,
-        subscribers: 247,
-        mrr: 850.00,
+        total: 0,
+        propulse: 0,
+        apiSales: 0,
+        manual: 0,
+        subscribers: 0,
+        mrr: 0,
         goal: 5000,
-        growth: 12.5
+        growth: 0
     },
     emails: {
-        listSize: 1847,
-        openRate: 42.3,
-        clickRate: 8.7,
-        growth: 15
+        listSize: 0,
+        openRate: 0,
+        clickRate: 0,
+        growth: 0
     },
     traffic: {
-        visitors: 4250,
-        conversions: 102,
-        conversionRate: 2.4,
-        socialFollowers: 2840
+        visitors: 0,
+        conversions: 0,
+        conversionRate: 0,
+        socialFollowers: 0
     },
     automation: {
-        activeSessions: 3,
-        tasksToday: 47,
-        revenuePerAutomation: 1250
+        activeSessions: 0,
+        tasksToday: 0,
+        revenuePerAutomation: 0
     },
     channels: {
-        telegram: { status: 'connected', unread: 5 },
-        whatsapp: { status: 'connected', unread: 0 },
-        email: { status: 'connected', queued: 12 }
+        telegram: { status: 'disconnected', unread: 0 },
+        whatsapp: { status: 'disconnected', unread: 0 },
+        email: { status: 'disconnected', queued: 0 }
     },
     system: {
-        cpu: 23,
-        ram: 45,
-        uptime: 86400,
-        disk: 62
+        cpu: 0,
+        ram: 0,
+        uptime: 0,
+        disk: 0
     },
-    cronJobs: [
-        { id: 1, name: 'Newsletter Generation', schedule: '0 8 * * *', status: 'active', lastRun: Date.now() - 3600000 },
-        { id: 2, name: 'Data Sync', schedule: '*/15 * * * *', status: 'active', lastRun: Date.now() - 900000 },
-        { id: 3, name: 'Report Generation', schedule: '0 0 * * *', status: 'paused', lastRun: Date.now() - 86400000 }
-    ],
-    sessions: [
-        { id: 1, name: 'Newsletter Bot', status: 'running', tasks: 156, revenue: 850 },
-        { id: 2, name: 'API Handler', status: 'running', tasks: 892, revenue: 425 },
-        { id: 3, name: 'Social Poster', status: 'running', tasks: 45, revenue: 0 }
-    ],
+    cronJobs: [],
     skills: [
-        { id: 'chat', name: 'Chat Interface', enabled: true, description: 'Talk to Marvin' },
-        { id: 'email', name: 'Email Automation', enabled: true, description: 'Automated email campaigns' },
-        { id: 'newsletter', name: 'Newsletter Gen', enabled: true, description: 'Generate PropPulse newsletters' },
-        { id: 'analytics', name: 'Analytics', enabled: true, description: 'Track metrics and trends' },
-        { id: 'scheduler', name: 'Task Scheduler', enabled: true, description: 'Cron job management' },
-        { id: 'api', name: 'API Sales', enabled: true, description: 'Data API endpoint' }
+        { id: 'chat', name: 'Chat Interface', enabled: false, description: 'Talk to Marvin' },
+        { id: 'email', name: 'Email Automation', enabled: false, description: 'Automated email campaigns' },
+        { id: 'newsletter', name: 'Newsletter Gen', enabled: false, description: 'Generate PropPulse newsletters' },
+        { id: 'analytics', name: 'Analytics', enabled: false, description: 'Track metrics and trends' },
+        { id: 'scheduler', name: 'Task Scheduler', enabled: false, description: 'Cron job management' },
+        { id: 'api', name: 'API Sales', enabled: false, description: 'Data API endpoint' }
     ],
+    sessions: [],
     logs: [
-        { time: new Date(), level: 'info', message: 'Newsletter sent to 1,847 subscribers' },
-        { time: new Date(Date.now() - 300000), level: 'success', message: 'Payment received: $49.00' },
-        { time: new Date(Date.now() - 600000), level: 'info', message: 'New subscriber: john@example.com' },
-        { time: new Date(Date.now() - 900000), level: 'warning', message: 'API rate limit approaching' },
-        { time: new Date(Date.now() - 1200000), level: 'error', message: 'Failed to send email to 3 recipients' }
+        { time: new Date(), level: 'info', message: 'Marvin Hub initialized - waiting for data' }
     ]
 };
 
