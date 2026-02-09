@@ -268,6 +268,19 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+// Add log entry
+app.post('/api/logs', (req, res) => {
+    const { message, level = 'info' } = req.body;
+    const log = {
+        time: new Date(),
+        level,
+        message
+    };
+    dashboardData.logs.unshift(log);
+    if (dashboardData.logs.length > 50) dashboardData.logs.pop();
+    res.json({ success: true, log });
+});
+
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {
     console.log(`Marvin's Hub running at http://localhost:${PORT}`);
